@@ -107,24 +107,26 @@ print('Apply parallax correction on: ')
 
 print(f'\n {mtg_df_local} \n ------- \n')
 
-(sat_lon, sat_lat, sat_alt) = (0,0,36000)#satpos of meteosat-12 ? #TODO update with more accurate information (not in the metadata...)
+(sat_lon, sat_lat, sat_alt) = (0,0,36000*1000)#satpos of meteosat-12 ? #TODO update with more accurate information (not in the metadata...)
 
 x_idx = mtg_df_local['x_idcs'].astype(int)
 y_idx = mtg_df_local['y_idcs'].astype(int)
 
-height = cth_dataset.data[y_idx, x_idx]/1000
+height = cth_dataset.data[y_idx, x_idx]
 
 #Deal with NaN values at location of the flashes:
 count_nan = numpy.sum(numpy.isnan(height))
 print(f'\n-------------\nThe number of pixel of CTH with NaN is : {count_nan}\n-----------\n')
 if (count_nan)==0:
-    corr_lon, corr_lat = parallax_correct(sat_lon = sat_lon, sat_lat=sat_lat, sat_alt= sat_alt,
+    corr_lon, corr_lat = get_parallax_corrected_lonlats(sat_lon = sat_lon, sat_lat=sat_lat, sat_alt= sat_alt,
                                           lon = mtg_df_local['longitude'], lat = mtg_df_local['latitude'], height = height)
 else:
 
     height_adjusted, mtg_df_nan = handle_missing_heights(cth_dataset, height, x_idx, y_idx, mtg_df_local)
-    corr_lon, corr_lat = parallax_correct(sat_lon = sat_lon, sat_lat=sat_lat, sat_alt= sat_alt,
-                                          lon = mtg_df_local['longitude'], lat = mtg_df_local['latitude'], height = height_adjusted)
+    corr_lon, corr_lat = get_parallax_corrected_lonlats(sat_lon = sat_lon, sat_lat=sat_lat, sat_alt= sat_alt,
+                                          lon = mtg_df_local['longitude'].to_numpy(),
+                                          lat = mtg_df_local['latitude'].to_numpy(), height = height_adjusted
+                                          )
 
 mtg_df_local['corr_x'], mtg_df_local['corr_y'] = lonlat_to_proj(lon = corr_lon, lat = corr_lat, target_proj=cth_dataset.area.proj_dict)
 
