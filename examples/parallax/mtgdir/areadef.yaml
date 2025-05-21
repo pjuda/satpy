@@ -1,0 +1,246 @@
+cosmo1eqc1km:
+  description: Roughly Swiss COSMO-1 model area as Equidistant Cylindrical projection with 1km resolution
+  projection:
+    proj: eqc
+    lat_0: 46.5
+    lon_0: 8.25
+    lat_ts: 46.0
+    ellps: WGS84
+    units: m
+  shape:
+    height: 1023
+    width: 1446
+  area_extent:
+    lower_left_xy: [-723026.300299, -512069.657649]
+    upper_right_xy: [723026.300299, 512069.657649]
+
+nrEURO3km:
+  description: nrEURO3km ninjo stereo projection
+  projection:
+    ellps: WGS84
+    proj: stere
+    lat_0: 90.0
+    lon_0: 10.0
+    lat_ts: 45.0
+  area_extent:
+    lower_left_xy: [-3067739.903023, -6299538.251344]
+    upper_right_xy: [2742233.418467, -1662599.543871]
+  shape:
+    height: 1600
+    width: 2000
+
+nrEURO1km:
+  description: nrEURO1km
+  projection:
+    proj: eqc
+    lon_0: 0.0
+    a: 6378137.00
+  area_extent:
+    lower_left_xy: [-2518713.908133, 3082306.010984]
+    upper_right_xy: [4490228.732948, 6887160.120028]
+  shape:
+    height: 3800
+    width: 7000
+
+ccs4:
+  description: CCS4 Swiss projection
+  projection:
+    proj:  somerc
+    lat_0:  46.9524055556
+    lon_0:  7.43958333333
+    ellps:  bessel
+    x_0:  600000.0
+    y_0:  200000.0
+    k_0:  1.0
+  shape:
+    height: 640
+    width:  710
+  area_extent:
+    lower_left_xy: [255000.0, -160000.0]
+    upper_right_xy: [965000.0, 480000.0]
+
+ccs4large:
+  description: CCS4 Swiss projection
+  projection:
+    proj:  somerc
+    lat_0:  46.9524055556
+    lon_0:  7.43958333333
+    ellps:  bessel
+    x_0:  600000.0
+    y_0:  200000.0
+    k_0:  1.0
+  shape:
+    height: 1280
+    width:  1420
+  area_extent:
+    lower_left_xy: [255000.0, -160000.0]
+    upper_right_xy: [965000.0, 480000.0]
+
+euro4:
+  description: Euro 4km area - Europe
+  projection:
+    proj: stere
+    ellps: bessel
+    lat_0: 90.0
+    lon_0: 14.0
+    lat_ts: 60.0
+  shape:
+    height: 1024
+    width: 1024
+  area_extent:
+    lower_left_xy: [-2717181.7304994687, -5571048.14031214]
+    upper_right_xy: [1378818.2695005313, -1475048.1403121399]
+
+my_europe:
+  description: Europe stereographik 4km area
+  projection:
+    proj: stere
+    lat_0: 45.0
+    lon_0: 10.0
+    lat_ts: 45.0
+    ellps: WGS84
+  shape:
+    width: 1338
+    height: 1133
+  area_extent:
+    lower_left_xy: [-1703125.2384185772, -1005859.3750000009]
+    upper_right_xy: [972656.0115814228, 1259765.624999999]
+
+my_europe_l:
+  description: Europe stereographik 4km area
+  projection:
+    proj: stere
+    lat_0: 45.0
+    lon_0: 10.0
+    lat_ts: 45.0
+    ellps: WGS84
+  shape:
+    width: 1500
+    height: 1270
+  area_extent:
+    lower_left_xy: [-1703125.2384185772, -1005859.3750000009]
+    upper_right_xy: [972656.0115814228, 1259765.624999999]
+
+# ---------- Meteosat Third Generation (MTG) / FCI Instrument -----------------
+
+# Full disk
+mtg_fci_fdss_500m:
+  description:
+    MTG FCI Full Disk Scanning Service area definition
+    with 500 m SSP resolution
+  projection:
+    proj: geos
+    lon_0: 0
+    h: 35786400
+    x_0: 0
+    y_0: 0
+    ellps: WGS84
+    no_defs: null
+  shape:
+    height: 22272
+    width: 22272
+  area_extent:
+    lower_left_xy: [-5567999.999637696, -5567999.999637696]
+    upper_right_xy: [5567999.999637678,  5567999.999637678]
+    units: m
+
+mtg_fci_fdss_1km:
+  description:
+    MTG FCI Full Disk Scanning Service area definition
+    with 1 km SSP resolution
+  projection:
+    proj: geos
+    lon_0: 0
+    h: 35786400
+    x_0: 0
+    y_0: 0
+    ellps: WGS84
+    no_defs: null
+  shape:
+    height: 11136
+    width: 11136
+  area_extent:
+    lower_left_xy: [-5567999.998550739, -5567999.998550739]
+    upper_right_xy: [5567999.998550762,  5567999.998550762]
+    units: m
+
+mtg_fci_fdss_2km:
+  description:
+    MTG FCI Full Disk Scanning Service area definition
+    with 2 km SSP resolution
+  projection:
+    proj: geos
+    lon_0: 0
+    h: 35786400
+    x_0: 0
+    y_0: 0
+    ellps: WGS84
+    no_defs: null
+  shape:
+    height: 5568
+    width: 5568
+  area_extent:
+    lower_left_xy: [-5567999.994203018, -5567999.994203018]
+    upper_right_xy: [5567999.994203017,  5567999.994203017]
+    units: m
+
+mtg_fci_fdss_4km:
+  description:
+    MTG FCI Full Disk Scanning Service area definition
+    with 4 km SSP resolution
+  projection:
+    proj: geos
+    lon_0: 0
+    h: 35786400
+    x_0: 0
+    y_0: 0
+    ellps: WGS84
+    no_defs: null
+  shape:
+    height: 2784
+    width: 2784
+  area_extent:
+    lower_left_xy: [-5567999.994203018, -5567999.994203018]
+    upper_right_xy: [5567999.994203017,  5567999.994203017]
+    units: m
+
+# Full disk - segmented products
+mtg_fci_fdss_6km:
+  description:
+    MTG FCI Full Disk Scanning Service area definition
+    with 6 km SSP resolution
+  projection:
+    proj: geos
+    lon_0: 0
+    h: 35786400
+    x_0: 0
+    y_0: 0
+    ellps: WGS84
+    no_defs: null
+  shape:
+    height: 1856
+    width: 1856
+  area_extent:
+    lower_left_xy: [-5567999.994203018, -5567999.994203018]
+    upper_right_xy: [5567999.994203017,  5567999.994203017]
+    units: m
+
+mtg_fci_fdss_32km:
+  description:
+    MTG FCI Full Disk Scanning Service area definition
+    with 32 km SSP resolution
+  projection:
+    proj: geos
+    lon_0: 0
+    h: 35786400
+    x_0: 0
+    y_0: 0
+    ellps: WGS84
+    no_defs: null
+  shape:
+    height: 348
+    width: 348
+  area_extent:
+    lower_left_xy: [-5567999.994203018, -5567999.994203018]
+    upper_right_xy: [5567999.994203017,  5567999.994203017]
+    units: m
