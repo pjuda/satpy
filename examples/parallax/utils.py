@@ -1,22 +1,22 @@
-import sys
-from datetime import datetime, timedelta
-
-import time
-from glob import glob
 import pickle
+import sys
+import time
+from datetime import datetime, timedelta
+from glob import glob
 from typing import List, Tuple
+
+import matplotlib
 import numpy
 import pandas
 import pyproj
 import xarray
-import matplotlib
+from config import _MTG_TIME_COORD, MTG_PROD_PATTERN, MTG_VARS, CTH_valid_range, wgs84_PROJ4
+from decorators import timer
+from pyorbital.orbital import A as EARTH_RADIUS
+from pyorbital.orbital import get_observer_look
 
 from satpy import Scene
 from satpy.utils import lonlat2xyz, xyz2lonlat
-from pyorbital.orbital import get_observer_look, A as EARTH_RADIUS
-
-from config import (_MTG_TIME_COORD, MTG_PROD_PATTERN, MTG_VARS, wgs84_PROJ4, CTH_valid_range)
-from decorators import timer
 
 
 def process_datetime_to_read_file(start_dt:str, end_dt:str) -> tuple:
@@ -80,7 +80,7 @@ def get_MTG_filenames(path_to_folder_li: str, start_time:str, end_time:str, MTG_
         time_pattern = 'EUMT_' + datetime.strftime(nc_time, '%Y%m%d%H%M') + '*'
 
         file_id = MTG_PROD_PATTERN[MTG_product] + time_pattern
-        list_of_file = glob(path_to_folder_li +  file_id)
+        list_of_file = glob(str(path_to_folder_li) + file_id)
 
 
         try: f_li[file_idx] = list_of_file[0] #the list contains one filename (expected):

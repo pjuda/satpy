@@ -1,12 +1,13 @@
 # Set configuration
+from pathlib import Path
+
 import numpy
-import os
 
 #TODO should all this dictionaries be written in the form of objects instead?
 # variable of interest for each product
 
-MTGDIR= '/home/jup/work/projects/satpy/examples/parallax/mtgdir/'
-OUTDIR = '/home/jup/work/projects/satpy/examples/parallax/outdir/'
+MTGDIR = Path(__file__).parent / "mtgdir"
+OUTDIR = Path(__file__).parent / "outdir"
 
 MTG_VARS = {
     'LGR': ['group_id', 'group_time', 'latitude', 'longitude', 'number_of_events', 'flash_id'],
@@ -38,7 +39,7 @@ MTRG=dict(lon_min=0.16, lon_max=16.75, lat_min=42.67, lat_max=49.73)
 
 RADIUS_OF_INFLUENCE = 5000
 
-PATH_CTH_PAL = "/home/zjequier/Documents/MTG_LI/mtg-li-meteorage-comparison/palette.pkl"
+PATH_CTH_PAL = MTGDIR / "palette.pkl"
 CTH_valid_range = numpy.array([    -2000, 25000], dtype = numpy.float32)
 #--------------- Resolution for the grid --------------------------------------
 TIME_RES_S = 60
